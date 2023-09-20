@@ -1,0 +1,12 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-ProjectJump.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Users\hengs\OneDrive\Documents\Unreal Projects\ProjectJump\Intermediate\Build\Win64\x64\ProjectJumpEditor\Development\Engine\SharedPCH.Engine.Cpp20.h.obj"
+"C:\Users\hengs\OneDrive\Documents\Unreal Projects\ProjectJump\Intermediate\Build\Win64\x64\UnrealEditor\Development\ProjectJump\ProjectJump.cpp.obj"
+"C:\Users\hengs\OneDrive\Documents\Unreal Projects\ProjectJump\Intermediate\Build\Win64\x64\UnrealEditor\Development\ProjectJump\Default.rc2.res"
+/OUT:"C:\Users\hengs\OneDrive\Documents\Unreal Projects\ProjectJump\Intermediate\Build\Win64\x64\UnrealEditor\Development\ProjectJump\UnrealEditor-ProjectJump.lib"

@@ -1,0 +1,14 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\hengs\\onedrive\\documents\\unreal projects\\projectjump\\source\\projectjump\\projectjump.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\hengs\\onedrive\\documents\\unreal projects\\projectjump\\intermediate\\build\\win64\\x64\\projectjumpeditor\\development\\engine\\sharedpch.engine.cpp20.h.pch",
+        "Includes": [
+            "c:\\users\\hengs\\onedrive\\documents\\unreal projects\\projectjump\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\projectjump\\definitions.projectjump.h",
+            "c:\\users\\hengs\\onedrive\\documents\\unreal projects\\projectjump\\source\\projectjump\\projectjump.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

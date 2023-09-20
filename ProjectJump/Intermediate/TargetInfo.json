@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "ProjectJump",
+			"Path": "..\\Source\\ProjectJump.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "ProjectJumpEditor",
+			"Path": "..\\Source\\ProjectJumpEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}
