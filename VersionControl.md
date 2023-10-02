@@ -60,7 +60,7 @@
 - Afterward, either continue the merge in visual studio code or in your terminal window type `git merge --continue`
 - Then add, commit, and push your changes back to Github server
 
-### Additional Steps - Resolving conflicts with binary text files (meta data files)
+### Additional Steps - Resolving conflicts with binary files (meta data files)
 - Which ever files that have conflicts, make duplicate copies of those in your own branch
 - After making the duplicate copies, then revert your local changes in the original files
 - Then, the conflicts should be gone. Perform `git merge --continue`
