@@ -1,5 +1,6 @@
 ﻿
 
+<<<<<<< HEAD
 # **PROJECT JUMP**
 
 ## B team : **Gravity Grippers**
@@ -235,6 +236,5 @@ Ensure production ready code has been thoroughly tested and running without bugs
  
 3.  **Safety and Security Requirements.**
 Our project is a small game without no online play and doesn’t need any security requirements. There are not many safety requirements either, other than ensuring the game is within the specs of modern operating systems so that it can be safely run on the user’s machine.
-
 
 ---
