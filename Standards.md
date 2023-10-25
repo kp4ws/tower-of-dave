@@ -121,6 +121,7 @@ ________________________________
    {
       int someLocalArr[size];  // size is NOT a constant
       ...
+   }
    (This won't apply to arrays that are dynamically-allocated using the "new", "malloc", or "calloc" operators, as discussed at the very bottom of this page.)
 
 ## Dynamic memory allocation
