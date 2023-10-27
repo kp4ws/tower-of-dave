@@ -1,6 +1,3 @@
-
-  
-
 # **PROJECT JUMP**
 
 ## B team : **Gravity Grippers**
@@ -220,28 +217,19 @@ Shop: Dave Wessel gets angry at you if you try to buy something without enough m
 ## Non-Functional Requirements.
 
 1.  **Performance Requirements.**
+Firstly, The program must be able to run smoothly on all modern PC operating systems
 
-  
+    Secondly, if time permits the program must be able to run smoothly on all 
+In both cases, the system needs to be able run the game executable file built from Unreal Engine 5.
 
-The system needs to be able to run unreal engine 5 on it for the game to work.
+2.  **Software Quality Requirements**.
+The quality requirements for our software are listed below:
+Ensure production ready code has been thoroughly tested and running without bugs
 
-The game should work in most cases, since it is not a large game.
+    Testing will be performed manually through play tests of the game after implementing a function
 
-  
-
-3.  **Software Quality Requirements**.
-
-Unreal Engine 5.3, Visual Studio Code 2022 are the main software you will need.
-
-  
-  
-
-4.  **Saftey and Security Requirements.**
-
-  
-
-The game does not need any saftey or security requirments as it is a small game with no online play.
-
-  
-
----
+    Software will adhere to standard coding and programming procedures to help reduce    spaghetti code, memory leaks, and any other errors or exceptions.  
+     Programmers of the software are expected to complete their task to the best of their ability to maintain top notch quality standards.
+ 
+3.  **Safety and Security Requirements.**
+Our project is a small game without no online play and doesn’t need any security requirements. There are not many safety requirements either, other than ensuring the game is within the specs of modern operating systems so that it can be safely run on the user’s machine.
