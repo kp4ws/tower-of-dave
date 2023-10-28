@@ -12,6 +12,8 @@ void AMyPlayerClass::BeginPlay()
 {
 	Super::BeginPlay();
 
+	wallet = 0;
+
 	InteractWidget = CreateWidget(Cast<APlayerController>(GetController()), InteractWidgetClass);
 
 	if (InteractWidget)
@@ -29,11 +31,11 @@ void AMyPlayerClass::Tick(float DeltaTime)
 	InteractCheck();
 }
 
-void AMyPlayerClass::SetupPlayerInputComponent(UInputComponent *PlayerInputComponent)
+void AMyPlayerClass::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 	UE_LOG(LogTemp, Warning, TEXT("SetupINput"));
-	if (UEnhancedInputComponent *PlayerEnhancedInputComponent = Cast<UEnhancedInputComponent>(PlayerInputComponent))
+	if (UEnhancedInputComponent* PlayerEnhancedInputComponent = Cast<UEnhancedInputComponent>(PlayerInputComponent))
 	{
 		if (InteractAction)
 		{
@@ -45,7 +47,7 @@ void AMyPlayerClass::SetupPlayerInputComponent(UInputComponent *PlayerInputCompo
 
 void AMyPlayerClass::Interact()
 {
-	AInteractables *foreign = Cast<AInteractables>(InteractHitResult.GetActor());
+	AInteractables* foreign = Cast<AInteractables>(InteractHitResult.GetActor());
 	if (Cast<AInteractables>(InteractHitResult.GetActor()) && foreign->ActorHasTag("Interactable"))
 	{
 		UE_LOG(LogTemp, Warning, TEXT("YES IT WORKD"));
@@ -60,29 +62,29 @@ void AMyPlayerClass::Interact()
 void AMyPlayerClass::InteractCheck()
 {
 	// Get Controller
-	
-		if (bCanMove){
-			Cast<APlayerController>(GetController())->GetPlayerViewPoint(ViewVector, ViewRotation);
-			FVector VecDirection = this->GetActorLocation();
-			FVector InteractEnd = VecDirection;
-			InteractEnd.Y += 1000;
-			FCollisionQueryParams QueryParams;
-			QueryParams.AddIgnoredActor(this);
-			GetWorld()->LineTraceSingleByChannel(InteractHitResult, VecDirection, InteractEnd, ECollisionChannel::ECC_GameTraceChannel1, QueryParams);
-			if (Cast<APawn>(InteractHitResult.GetActor()) && Cast<APawn>(InteractHitResult.GetActor())->ActorHasTag("Interactable"))
+
+	if (bCanMove) {
+		Cast<APlayerController>(GetController())->GetPlayerViewPoint(ViewVector, ViewRotation);
+		FVector VecDirection = this->GetActorLocation();
+		FVector InteractEnd = VecDirection;
+		InteractEnd.Y += 1000;
+		FCollisionQueryParams QueryParams;
+		QueryParams.AddIgnoredActor(this);
+		GetWorld()->LineTraceSingleByChannel(InteractHitResult, VecDirection, InteractEnd, ECollisionChannel::ECC_GameTraceChannel1, QueryParams);
+		if (Cast<APawn>(InteractHitResult.GetActor()) && Cast<APawn>(InteractHitResult.GetActor())->ActorHasTag("Interactable"))
+		{
+			if (InteractWidget)
 			{
-				if (InteractWidget)
-				{
-					InteractWidget->SetVisibility(ESlateVisibility::Visible);
-				}
+				InteractWidget->SetVisibility(ESlateVisibility::Visible);
 			}
-			else
+		}
+		else
+		{
+			if (InteractWidget)
 			{
-				if (InteractWidget)
-				{
-					InteractWidget->SetVisibility(ESlateVisibility::Collapsed);
-				}
+				InteractWidget->SetVisibility(ESlateVisibility::Collapsed);
 			}
+		}
 	}
 }
 
@@ -101,6 +103,6 @@ void AMyPlayerClass::SetInteractWidgetVisibility(bool input)
 		else {
 			InteractWidget->SetVisibility(ESlateVisibility::Collapsed);
 		}
-		
+
 	}
 }

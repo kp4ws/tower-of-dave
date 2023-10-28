@@ -7,7 +7,7 @@
 #include "InputActionValue.h"
 #include "MyPlayerClass.generated.h"
 /**
- * 
+ *
  */
 class UInputAction;
 class UInputMappingContext;
@@ -15,30 +15,33 @@ UCLASS()
 class PROJECTJUMP_API AMyPlayerClass : public APaperZDCharacter
 {
 	GENERATED_BODY()
-	
+
 public:
 
-//Show here is how to make an implementable event in blueprints
-	//UFUNCTION(BlueprintImplementableEvent)
-		//void FlipSprite();
+	//Show here is how to make an implementable event in blueprints
+		//UFUNCTION(BlueprintImplementableEvent)
+			//void FlipSprite();
 	UPROPERTY(EditDefaultsOnly)
-		UInputAction* InteractAction;
+	UInputAction* InteractAction;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		bool bIsInShop;
-
-		UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		bool bCanMove = true;
+	bool bIsInShop;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		TSubclassOf<UUserWidget> InteractWidgetClass;
+	bool bCanMove = true;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		UUserWidget* InteractWidget;
+	int wallet;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TSubclassOf<UUserWidget> InteractWidgetClass;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UUserWidget* InteractWidget;
 
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
-	
+
 	void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
 
 	void Interact();
