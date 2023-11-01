@@ -1,23 +1,20 @@
-Project Update:
+# Project Update:
 
-10/03/2023
+### Date : 10/24/2023
 
-Team Composition:
+#### Team Composition:
+- Jacob managed to get unreal working, will now work on the HUD for main game and other scenes.
+
+#### Team Structure:
 - No changes.
 
-Team Structure:
-- Connor is switching off of Character Programmer, and onto Player Features, to develop 
-the shop.
-- Jacob is switching off of develping the User Interface due to issues running the Unreal 
-Engine on Mac. He will be handling any documentation needed until the problem is resolved.
-- Kenny is switching on to User Interface.
-- All other roles have not been changed.
-
-Team Contact Info:
+#### Team Contact Info:
 - No changes.
 
-Planned Meeting Times:
-- No changes 
+#### Planned Meeting Times:
+- No changes. 
 
-Major Changes to The Targeted Project:
-- None.
+#### Major Changes to The Targeted Project:
+- Updated Specifications.md :
+    went into detail about world generation, player variables, jetpack variables, traps, goals, and more.
+    much clearer than previous specifications file.
