@@ -10,6 +10,10 @@
 			"LoadingPhase": "Default",
 			"AdditionalDependencies": [
 				"PaperZD",
+<<<<<<< HEAD
+=======
+				"Paper2D",
+>>>>>>> dev
 				"Engine"
 			]
 		}

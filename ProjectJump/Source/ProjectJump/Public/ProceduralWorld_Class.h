@@ -13,5 +13,8 @@ UCLASS()
 class PROJECTJUMP_API AProceduralWorld_Class : public AWorldSettings
 {
 	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere)
+	bool hi;
 	
 };
