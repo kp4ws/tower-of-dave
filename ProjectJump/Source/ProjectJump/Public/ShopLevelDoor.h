@@ -13,9 +13,10 @@ UCLASS()
 class PROJECTJUMP_API AShopLevelDoor : public AInteractables
 {
 	GENERATED_BODY()
-
+public:
 	UFUNCTION()
 	void OnInteract();
+
 	bool bIsInteracting = false;
 	virtual void InteractReceived() override;
 };
