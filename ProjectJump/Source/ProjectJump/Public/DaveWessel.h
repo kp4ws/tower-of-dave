@@ -22,11 +22,12 @@ public:
 	UUserWidget* ShopUI;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TSubclassOf<UUserWidget> ShopWidgetClass;
+	UFUNCTION(BlueprintCallable)
+	void callInteract();
 
 	AController* playerController;
 	bool bIsInteracting = false;
-	UFUNCTION(BlueprintCallable)
-	void callInteract();
+
 	virtual void InteractReceived() override;
 	virtual void BeginPlay() override;
 };
