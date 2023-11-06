@@ -11,11 +11,15 @@ void AShopLevelDoor::OnInteract()
 	UE_LOG(LogTemp, Warning, TEXT("Interacting with Shop Level Door"));
 	if (controller && player && player->bIsInShop) {
 		player->bIsInShop = false;
+		player->gameSave();
 		UGameplayStatics::OpenLevel(this, "TestLevel3");
+		player->loadGame();
 	}
 	else if (controller && player && !player->bIsInShop) {
 		player->bIsInShop = true;
+		player->gameSave();
 		UGameplayStatics::OpenLevel(this, "Shop");
+		player->loadGame();
 	}
 }
 

@@ -8,11 +8,25 @@
 #include "Blueprint/UserWidget.h"
 #include "Interactables.h"
 
+void AMyPlayerClass::gameSave_Implementation()
+{
+	//UE_LOG(LogTemp, Warning, TEXT("Game Saved"));
+}
+
+void AMyPlayerClass::loadGame_Implementation()
+{
+	//UE_LOG(LogTemp, Warning, TEXT("Game loaded!"));
+}
+
+void AMyPlayerClass::clearSave_Implementation()
+{
+}
+
 void AMyPlayerClass::BeginPlay()
 {
 	Super::BeginPlay();
-
-	wallet = 0;
+	UE_LOG(LogTemp, Warning, TEXT("Game Begun!!!!"));
+	this->loadGame();
 
 	InteractWidget = CreateWidget(Cast<APlayerController>(GetController()), InteractWidgetClass);
 
