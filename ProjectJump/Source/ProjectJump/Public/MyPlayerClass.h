@@ -31,13 +31,23 @@ public:
 	bool bCanMove = true;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int wallet;
+	int wallet = 0;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TSubclassOf<UUserWidget> InteractWidgetClass;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UUserWidget* InteractWidget;
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "SaveGame")
+	void clearSave();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "SaveGame")
+	void gameSave();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "SaveGame")
+	void loadGame();
+
 
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
