@@ -1,7 +1,32 @@
 # Design Overview
 
+
+## Table of Contents
+- Design Overview
+- Player
+- Basic Movement
+- Jump
+- Move 
+- Abilities
+- Interactions
+- Interactables
+- David Wessels
+- World
+- Tower Boundary
+- Random Platform Spawner
+- One Way Platform
+- Level-traversing Door
+- Shop  
+Physical Design
+- Overview
+- Structure of Directories
+- C++ Classes
+
+Contact Info: hengstler2005@gmail.com
+
 ![image2](https://github.com/kp4ws/project-jump/assets/58745400/7b71a24e-04b5-49e9-bfaa-5e7e028ba360)
 
+---
 
 ## Player:
 Player is all systems inside of, and directly interacting with the player. This is broken down further into Basic Movement, Abilities, Widgets, and Interactions.
@@ -123,30 +148,3 @@ This function does not do anything but log to the console that its called. This 
 Public methods for Dave are only InteractReceived. 
 ### InteractReceived: 
 This is the inherited function from the Interactables class, when the player Interacts with Dave, this function is called and then it calls the native class of OnInteract.
-
-
-# Misc
-## Table of Contents
-- Design Overview
-- Player
-- Basic Movement
-- Jump
-- Move 
-- Abilities
-- Interactions
-- Interactables
-- David Wessels
-- World
-- Tower Boundary
-- Random Platform Spawner
-- One Way Platform
-- Level-traversing Door
-- Shop  
-Physical Design
-- Overview
-- Structure of Directories
-- C++ Classes
-
----
-
-Contact Info: hengstler2005@gmail.com
