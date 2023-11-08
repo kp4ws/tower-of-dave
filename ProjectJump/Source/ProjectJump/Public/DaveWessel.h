@@ -22,6 +22,8 @@ public:
 	UUserWidget* ShopUI;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TSubclassOf<UUserWidget> ShopWidgetClass;
+
+
 	UFUNCTION(BlueprintCallable)
 	void callInteract();
 
