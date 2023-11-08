@@ -2,8 +2,7 @@
 Contact: hengstler2005@gmail.com
 
 # Design Overview  
-![image](https://github.com/kp4ws/project-jump/assets/58745400/1bbda9e3-ab35-4685-80a3-60b9283508a6)
-
+![Imgur](https://i.imgur.com/5B6FrLk.png?2)
 # Table of Contents
 * Design Overview
 * Logical Design
