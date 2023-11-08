@@ -29,12 +29,18 @@ void AMyPlayerClass::BeginPlay()
 	this->loadGame();
 
 	InteractWidget = CreateWidget(Cast<APlayerController>(GetController()), InteractWidgetClass);
+	JetpackUI = CreateWidget(Cast<APlayerController>(GetController()), JetpackWidgetClass);
 
 	if (InteractWidget)
 	{
 		InteractWidget->AddToViewport(0);
 		SetInteractWidgetVisibility(false);
 		UE_LOG(LogTemp, Warning, TEXT("Widget Worked"))
+	}
+
+	if (JetpackUI) {
+		JetpackUI->AddToViewport(0);
+		JetpackUI->SetVisibility(ESlateVisibility::Collapsed);
 	}
 }
 
