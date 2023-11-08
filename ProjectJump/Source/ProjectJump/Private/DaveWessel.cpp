@@ -56,10 +56,9 @@ void ADaveWessel::BeginPlay()
 	playerController = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0)->GetController();
 	ShopUI = CreateWidget(Cast<APlayerController>(playerController), ShopWidgetClass);
 
-
 	if (ShopUI)
 	{
-		ShopUI->AddToViewport(0);
+		ShopUI->AddToViewport(1);
 		ShopUI->SetVisibility(ESlateVisibility::Collapsed);
 	}
 
