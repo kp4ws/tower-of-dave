@@ -34,6 +34,9 @@ Interactions handling in the player include two functions which are Interact and
 Interact check is called every tick and checks if an object directly behind the player is castable to an Interactables class, if it is it updates the InteractHitResult on the line trace channel in unreal to the object.
 Interact is called when the player clicks the interact button E, it calls the function OnInteract that is in the Interactables object and that object executes its function.
 
+![image4](https://github.com/kp4ws/project-jump/assets/58745400/6abb650b-7e7a-46f4-9a2d-20f16c26fba5)
+
+
 ### Save Game
 The save game module is implemented in 3 different functions, loadGame, gameSave, and clearGame, they modify and store the wallet value of the player, as well as if they have any specific abilities unlocked.  gameSave stores these into a saveGame blueprint object, which is saved to the hard drive of the user to keep progress between plays, loadGame calls the object and sets the value of the player to these, and clearGame resets all values of both player and the SaveGame object
 ## Interactables: 
@@ -49,6 +52,8 @@ ShopLevelDoor is an object that will move players from one location to another. 
 
 ## World:
 World is the physical level that the player will be moving around inside during the game experience. Players will spawn into an initial level that will contain different objects: Tower Boundary, Random Platform Spawner, One Way Platform, Level Traversing Door, and Shop.
+
+![image3](https://github.com/kp4ws/project-jump/assets/58745400/2e16d80a-be37-49d3-bc53-b183526148f1)
 
 ### Tower Boundary:
 The tower boundary is a class that takes in max X and Y values and generates the borders of our tower by spawning in blocks repeatedly, starting one where the next one finishes, up to a defined Max value. This border prevents the player from walking through and creates the level of our game.
@@ -74,30 +79,31 @@ A simple spike trap that subtracts a 4th of the player health if the player bump
 # Physical Design
 
 We are implementing our project using unreal engine 5, which uses a collaboration between blueprints and C++. There are some features that are much easier to implement using blueprints and some that are much easier using C++ classes so we have decided that using a mixture of both provides the most efficient procedure to completing our game. Blueprints are an unreal specific visual style coding practice, where you can see the actual flow of the code and track how events are performed. These blueprint classes mimic C++ logic and the actions we wish to implement can be written both ways.
-The directories for most of the file structure is inherent to our Unreal Engine 5 project. The directories created for our unreal project are:
-Config
-Content
-ExternalActors
-ExternalObjects
-Adventurer-1.5
-Blueprint
-Player
-World 
-Main Menu
-Background 
-Interactables
-Shop Assets
-EPMasterMaterials
-PlayerSprites
-StarterContent
-Intermediate
-Build
-ShaderAutogen
-Saved
-Source
-The important part of the directories of our concern are contained inside the Blueprints folder and the Source folder.
-Blueprints folder contains all .uasset files which are Unreal Engine 5’s way of saving our blueprints we create inside the Unreal Engine 5 UI. These are important components to the functioning of our game.
-In the Source folder we have our C++ implementations inside the Private folder, and our C++ header files inside the Public folder so the classes and Our public classes currently Include MyPlayerClass, Interactables, and DaveWessel.
+
+- The directories for most of the file structure is inherent to our Unreal Engine 5 project. The directories created for our unreal project are:
+    - Config
+    - Content
+        - ExternalActors
+        - ExternalObjects
+        - Adventurer-1.5
+        - Blueprint
+            - Player
+            - World 
+            - Main Menu
+            - Background 
+            - Interactables
+            - Shop Assets
+        - EPMasterMaterials
+        - PlayerSprites
+        - StarterContent
+    - Intermediate
+        - Build
+        - ShaderAutogen
+    - Saved
+    - Source  
+- The important part of the directories of our concern are contained inside the Blueprints folder and the Source folder.
+    - Blueprints folder contains all .uasset files which are Unreal Engine 5’s way of saving our blueprints we create inside the Unreal Engine 5 UI. These are important components to the functioning of our game.
+    - In the Source folder we have our C++ implementations inside the Private folder, and our C++ header files inside the Public folder so the classes and Our public classes currently Include MyPlayerClass, Interactables, and DaveWessel.
 ## MyPlayerClass
 The player class has 3 public functions currently. SetCanMove, SetInteractWidgetVisibility, and Interact.
 
