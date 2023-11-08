@@ -1,20 +1,29 @@
 # Project Update:
 
-### Date : 10/24/2023
+### Date : 11/6/2023
 
 #### Team Composition:
-- Jacob managed to get unreal working, will now work on the HUD for main game and other scenes.
+- Jacob has quit CSCI265, and therefore has left the team.
+- As a result, we have gained a new member, Mohammed.
+- Due to Jacob quitting, we temporarily assigned roles to get the missing work done.
+
 
 #### Team Structure:
-- No changes.
+- Mohammed will spend a few weeks learning about our project and unreal
+- He will be placed onto the tasks Jacob had, so UI and documentation, eventually.
+- Rest of the team remains the same, doing the same tasks.
+
 
 #### Team Contact Info:
-- No changes.
+- Mohammed contact details have been added.
 
 #### Planned Meeting Times:
 - No changes. 
 
 #### Major Changes to The Targeted Project:
 - Updated Specifications.md :
-    went into detail about world generation, player variables, jetpack variables, traps, goals, and more.
-    much clearer than previous specifications file.
+    Added information about new things done to the project since last update, and reformatted document to fit the course style.
+
+- Updated Design.md :
+    Redid entire document, made it more relevant and suitable to the project.
+    Fixed logical design, added more information to design overview and added information about new systems.

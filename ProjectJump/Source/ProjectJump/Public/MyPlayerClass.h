@@ -39,6 +39,12 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UUserWidget* InteractWidget;
 
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UUserWidget* JetpackUI;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TSubclassOf<UUserWidget> JetpackWidgetClass;
+
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "SaveGame")
 	void clearSave();
 
