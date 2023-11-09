@@ -6,8 +6,8 @@ Team project for CSCI265 course.
 - Kent Pawson
 - Kieran Paauwe
 - Sooriya Narendran
-- Jacob Lillywhite
 - Connor Hengstler
+- Mohamad Sheikho Al Jasem
 
 ## Technologies
 - Unreal Engine
