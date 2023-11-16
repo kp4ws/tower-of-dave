@@ -59,15 +59,14 @@ Interactions handling in the player include two functions which are Interact and
 Interact check is called every tick and checks if an object directly behind the player is castable to an Interactables class, if it is it updates the InteractHitResult on the line trace channel in unreal to the object.
 Interact is called when the player clicks the interact button E, it calls the function OnInteract that is in the Interactables object and that object executes its function.
 
-![image4](https://github.com/kp4ws/project-jump/assets/58745400/6abb650b-7e7a-46f4-9a2d-20f16c26fba5)
-
-
 ### Save Game
 The save game module is implemented in 3 different functions, loadGame, gameSave, and clearGame, they modify and store the wallet value of the player, as well as if they have any specific abilities unlocked.  gameSave stores these into a saveGame blueprint object, which is saved to the hard drive of the user to keep progress between plays, loadGame calls the object and sets the value of the player to these, and clearGame resets all values of both player and the SaveGame object
 ## Interactables: 
 
 Interactables is a class of objects that each object we want the player to interact with inherits from. This class has one function which is OnInteract, since this function is inherited, every interactable has it and when it is called it calls the native function of whatever object to execute their function.
 The Interactables heavily interact with the World to place these objects in the world and procedurally generate them, as well as the player who initiates calls for these objects. Widgets are also used for some of these objects. Currently there are 2 interactables implemented DaveWessel and shopLevelDoor.
+
+![image4](https://github.com/kp4ws/project-jump/assets/58745400/6abb650b-7e7a-46f4-9a2d-20f16c26fba5)
 
 ### DaveWessel: 
 When Dave Wessel is interacted with, the players camera is changed to Dave's camera and the player can no longer move. It also pulls up the Widget for the shop. When the player presses the interact button again their camera switches back to the default for the player camera and it is able to move again. Dave works with the player using its widgets, and interact, as well as stopping it from moving.
