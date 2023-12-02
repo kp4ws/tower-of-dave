@@ -160,7 +160,7 @@ Represents interactable objects in the game. There is only one public function f
     - No return values.
 
 ### DaveWessel Interactable
-Represents Dave Wessel interactable object. There is only one public function, InteractReceived, which is inherited from the Interactable class.
+Represents DaveWessel interactable object. There is only one public function, InteractReceived, which is inherited from the Interactable class.
 
 ### Public Functions for DaveWessel Interactable:
 - **InteractReceived: () -> None:**
@@ -170,7 +170,7 @@ Represents Dave Wessel interactable object. There is only one public function, I
 
 
 ### ShopDoor Interactable:
-Represents Dave Wessel interactable object. There is only one public function, InteractReceived, which is inherited from the Interactable class.
+Represents ShopDoor interactable object. There is only one public function, InteractReceived, which is inherited from the Interactable class.
 
 ### Public Functions for ShopDoor Interactable:
 - **InteractReceived: () -> None:**
