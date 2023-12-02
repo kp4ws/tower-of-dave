@@ -101,6 +101,34 @@ The game starts with the player on the ground, the lowest level, and the player 
  
 
 
+## Game Rules/Mechanics.
+
+
+ 
+
+
+1.  **Rules.**
+
+
+ 
+    - The game should save when entering the shop, and vice versa.
+    - There is no guarantee that the player will be able to complete the tower jumps strictly based on the jump mechanic. This will ensure the player will need to become more effective with their jetpack usage.
+    - As the game difficulty progresses, the player may reach a point when they can not progress any further, this will be their high score achieved.
+    - The restrictions built into the specifications for each component or mechanic of the game will help to guide the player into the rules of the game.
+
+
+
+2.  **Mechanics.**
+
+
+
+    - Player is not allowed to exit the tower boundaries to the left and right of the Tower platform, physical constraints should keep the player inside this part of the map.
+    - Player is not able to go back down to the previous level once through the one way platform. This should keep them progressing in levels and control their movement to their current level and upwards.
+    - The jetpack should not work when you run out of fuel, you will need to acquire more fuel to continue using it.
+
+ 
+
+
 ## Game Levels.
 
 
