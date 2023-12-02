@@ -102,7 +102,7 @@ A simple spike trap that subtracts a 4th of the player health if the player bump
 
 # Physical Design
 
-We are implementing our project using unreal engine 5, which uses a collaboration between blueprints and C++. There are some features that are much easier to implement using blueprints and some that are much easier using C++ classes so we have decided that using a mixture of both provides the most efficient procedure to completing our game. Blueprints are an unreal specific visual style coding practice, where you can see the actual flow of the code and track how events are performed. These blueprint classes mimic C++ logic and the actions we wish to implement can be written both ways.
+We are implementing our project using Unreal Engine 5, which uses a collaboration between blueprints and C++. There are some features that are much easier to implement using blueprints and some that are much easier using C++ classes so we have decided that using a mixture of both provides the most efficient procedure to completing our game. Blueprints are an unreal specific visual style coding practice, where you can see the actual flow of the code and track how events are performed. These blueprint classes mimic C++ logic and the actions we wish to implement can be written both ways.
 
 - The directories for most of the file structure is inherent to our Unreal Engine 5 project. The directories created for our unreal project are:
     - Config
@@ -111,6 +111,7 @@ We are implementing our project using unreal engine 5, which uses a collaboratio
         - ExternalObjects
         - Adventurer-1.5
         - Blueprint
+            - Back Drop
             - Player
             - World 
             - Main Menu
@@ -127,23 +128,52 @@ We are implementing our project using unreal engine 5, which uses a collaboratio
     - Source  
 - The important part of the directories of our concern are contained inside the Blueprints folder and the Source folder.
     - Blueprints folder contains all .uasset files which are Unreal Engine 5’s way of saving our blueprints we create inside the Unreal Engine 5 UI. These are important components to the functioning of our game.
-    - In the Source folder we have our C++ implementations inside the Private folder, and our C++ header files inside the Public folder so the classes and Our public classes currently Include MyPlayerClass, Interactables, and DaveWessel.
+    - In the Source folder we have our C++ implementations inside the Private folder, and our C++ header files inside the Public folder so the classes and Our public classes currently Include MyPlayerClass, Interactables, DaveWessel, and ShopDoor.
+      
 ## MyPlayerClass
-The player class has 3 public functions currently. SetCanMove, SetInteractWidgetVisibility, and Interact.
+Represents the main player in the game. This class has 3 public functions that can be used elsewhere in the code.
 
-### SetCanMove: Input(bool)
-This parameter is used to determine whether the player can move or not based on the input value.
+### Public Functions
+- **SetCanMove: Input(bool) -> None:**
+    - Public function used to set if player can move.
+    - Accepts a boolean value for whether the player can move or not.
+    - No return values.
 
-### SetInteractWidgetVisibility: Input(bool)
-This parameter changes whether the interact widget is visible or not based on the input value.
+- **SetInteractWidgetVisibility: Input(bool) -> None:**
+    - Public function used to update the interact widget UI visibility.
+    - Accepts a boolean value for whether the UI should be displayed or not.
+    - No return values.
 
-### Interact:
-Interact is used to call the interact function of an object that is line traced behind the player. There is no input and no output, it simply calls the object's function.
+- **Interact: () -> None:**
+    - Public function used to interact with any interactable object. Initiates the interaction with the object via line tracing behind the player's position.
+    - No parameters.
+    - No return values.
+
+
 ## Interactables
-There is only one public function for interactables which is InteractReceived.
-### InteractReceived:
-This function does not do anything but log to the console that its called. This is simply so that there is a common function within every interactable object for the player to call when they want to interact.
-## DaveWessel
-Public methods for Dave are only InteractReceived. 
-### InteractReceived: 
-This is the inherited function from the Interactables class, when the player Interacts with Dave, this function is called and then it calls the native class of OnInteract.
+Represents interactable objects in the game. There is only one public function for interactables which is InteractReceived. Each class that inherits from Interactables will override the InteractReceived function to perform their specific use cases. Dave Wessel and Shop Door are the only two interactable objects in our game.
+
+### Public Interface Method:
+- **InteractReceived: () -> None:**
+    - Public function that gets called upon the player initiating the interaction. Each interactable object overrides this function to provide specific functionality for their interaction use cases.
+    - No parameters.
+    - No return values.
+
+### DaveWessel Interactable
+Represents DaveWessel interactable object. There is only one public function, InteractReceived, which is inherited from the Interactable class.
+
+### Public Functions for DaveWessel Interactable:
+- **InteractReceived: () -> None:**
+    - Public function that gets called upon the player initiating the interaction. Opens up the shop menu upon being executed.
+    - No parameters.
+    - No return values.
+
+
+### ShopDoor Interactable:
+Represents ShopDoor interactable object. There is only one public function, InteractReceived, which is inherited from the Interactable class.
+
+### Public Functions for ShopDoor Interactable:
+- **InteractReceived: () -> None:**
+    - Public function that gets called upon the player initiating the interaction. Loads Shop level if player is in Overworld, or loads Overworld if player is in Shop level.
+    - No parameters.
+    - No return values.
