@@ -128,7 +128,7 @@ We are implementing our project using Unreal Engine 5, which uses a collaboratio
     - Source  
 - The important part of the directories of our concern are contained inside the Blueprints folder and the Source folder.
     - Blueprints folder contains all .uasset files which are Unreal Engine 5’s way of saving our blueprints we create inside the Unreal Engine 5 UI. These are important components to the functioning of our game.
-    - In the Source folder we have our C++ implementations inside the Private folder, and our C++ header files inside the Public folder so the classes and Our public classes currently Include MyPlayerClass, Interactables, and DaveWessel.
+    - In the Source folder we have our C++ implementations inside the Private folder, and our C++ header files inside the Public folder so the classes and Our public classes currently Include MyPlayerClass, Interactables, DaveWessel, and ShopDoor.
       
 ## MyPlayerClass
 Represents the main player in the game. This class has 3 public functions that can be used elsewhere in the code.
