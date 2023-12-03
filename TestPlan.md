@@ -1,3 +1,27 @@
+# Test Plan 
+
+## Testing Techniques:
+Since our project is a game made in an engine, it is difficult to set up comprehensive automatic testing for it due to metadata files and the numerous interacting systems and objects. Because of this, the test cases for our project contain user scripts that detail the actions taken to set up the environment, and to perform the test for a specific component or interaction in our game. Our tests are categorised by the systems they test denoted by the number, and each test case for the system is denoted by a letter.
+Test Infrastructure In Use:
+Our testing infrastructure will use Unreal Engine as a tool to perform testing on our project. Within Unreal Engine, the software tester will follow user scripts that contain detailed steps on setting up the environment for the specific test, as well as how to perform the test. The categories of tests are separated by ID numbers and the categories are as follows.
+1 → World Objects and Generation
+2 → Player Functionality and Movement
+3 → Interactable Objects and Handling
+4 → Currency Handling and Shop
+5 → General Game Mechanics
+6 →  Widgets and UI
+
+## Testing Process:
+The test table is designed in 4 columns being Name, Description, User Script, Expected Results, each of these should be read in that exact order for the tester to have the smoothest experience possible when testing. 
+The Name is a unique identifier that gives a brief idea of what the test case does, alongside the ID number for the category and letter for each individual test of the category, this is used to refer to the test when discussing with colleagues, or when looking at the test table. 
+The Description column expands upon the brief idea from the name column, and goes more into depth about the specific component and situation that the case tests. This should be read before testing to give the tester a better idea about what they are exactly testing.
+Once the name and descriptions are read, the tester now refers to the User Script column. This column details the exact process for the tester to follow when setting up the testing environment, as well as executing the test. 
+After setting up the environment and executing the test, the tester must check the Expected Results (Exp Results) column to see what is expected to happen. The expected results is a detailed description of what should happen in the game if the component is working as expected. If the expected result accurately describes what happened on the screen after performing the test, that means the component worked properly and the test succeeded.
+
+
+
+## Test Table
+
 | Name                                       | Description                                                                                        | User Script                                                                                                 | Exp Results                                                                                                   |
 |--------------------------------------------|----------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
 | <strong>Test 1A:<strong> Level Generation When Passing Through OneWayPlatform  | This tests whether or not the level generation is successful when passing through the OneWayPlatform both for the first level, and successive levels | <ul><li>Open the project in Unreal Engine</li><li>Select TestLevel3 and click play.</li><li>Pop the camera outside of player, and zoom out until the whole tower is visible as well as empty space above it.</li><li>In the player details panel, change the Y value of the player until it passes through the first one way platform and observe if new levels spawn at the top of the tower.</li><li>Repeat step 4 twice more for the second and third levels to see if the levels are generating, zooming out more as needed to observe the level generation.</li></ul>| Expected result would be that a new level is generated at the empty space of the top of the tower each time the player passes through a one way platform. That is, for the player passing through 3 one way platforms in this case, there would be 3 newly generated levels.   |
