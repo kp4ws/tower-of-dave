@@ -230,6 +230,12 @@ Thrust - Chosen by developer, used to boost player upwards
 This is just a spike trap on some platforms which damage the player when they touch it. Using a function that detects collision, the game will be able to tell when the player sprite touches the spike sprite. This will subtract a set amount of damage from the players overall health while they still have health remaining.
 
 
+4. **Health Potion:**
+A Health Potion is a pickup object that heals the player when used. The player can buy potions from the shop and then spawn them in game by pressing a key, which will spawn a health potion item in front of the player which gets destroyed when the player walks over it, and heals the player for a set amount of health.
+
+**Variables:**
+numPotion - Chosen by developer, decremented each time a potion is used
+
 ## Priority Levels.
 
 1.  **Core**.
