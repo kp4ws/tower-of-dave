@@ -101,6 +101,34 @@ The game starts with the player on the ground, the lowest level, and the player 
  
 
 
+## Game Rules/Mechanics.
+
+
+ 
+
+
+1.  **Rules.**
+
+
+ 
+    - The game should save when entering the shop, and vice versa.
+    - There is no guarantee that the player will be able to complete the tower jumps strictly based on the jump mechanic. This will ensure the player will need to become more effective with their jetpack usage.
+    - As the game difficulty progresses, the player may reach a point when they can not progress any further, this will be their high score achieved.
+    - The restrictions built into the specifications for each component or mechanic of the game will help to guide the player into the rules of the game.
+
+
+
+2.  **Mechanics.**
+
+
+
+    - Player is not allowed to exit the tower boundaries to the left and right of the Tower platform, physical constraints should keep the player inside this part of the map.
+    - Player is not able to go back down to the previous level once through the one way platform. This should keep them progressing in levels and control their movement to their current level and upwards.
+    - The jetpack should not work when you run out of fuel, you will need to acquire more fuel to continue using it.
+
+ 
+
+
 ## Game Levels.
 
 
@@ -201,6 +229,12 @@ Thrust - Chosen by developer, used to boost player upwards
 
 This is just a spike trap on some platforms which damage the player when they touch it. Using a function that detects collision, the game will be able to tell when the player sprite touches the spike sprite. This will subtract a set amount of damage from the players overall health while they still have health remaining.
 
+
+4. **Health Potion:**
+A Health Potion is a pickup object that heals the player when used. The player can buy potions from the shop and then spawn them in game by pressing a key, which will spawn a health potion item in front of the player which gets destroyed when the player walks over it, and heals the player for a set amount of health.
+
+**Variables:**
+numPotion - Chosen by developer, decremented each time a potion is used
 
 ## Priority Levels.
 
