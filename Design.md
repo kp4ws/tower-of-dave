@@ -15,6 +15,7 @@
 - Tower Boundary
 - Random Platform Spawner
 - One Way Platform
+- Platform Socket
 - Level-traversing Door
 - Shop  
 Physical Design
@@ -92,6 +93,12 @@ This system randomly generates a new level with every compile and placement and 
 
 ### One Way Platform:
 	The one way platform class was implemented early on in our project as a basic floor/roof of each level. Once the player jumps and reaches the bottom of this platform, a function recognizes this overlap and allows the player sprite to pass through until it is clear above the platform. Once it does this and the overlap ends, the player cannot pass back through. This platform has a feature where it sends out a signal whenever a player passes through it which is used for queuing the generation of the next level. This way the map will continue to build infinitely as the player jumps higher and higher, incrementing a variable called level count for every instance that is created. This level count variable is used to alter the continuing levels to increase the difficulty by spawning less platforms, and more traps, as well as increasing the amount of coins that are spawned. Once this signal is received, A new random level, tower boundary, traps, coins, background panel, and a one way platform are all spawned on top of the current level, allowing for a seamless jump into newly created levels.
+
+### Platform Sockets
+    An invisbile box that provides the ability to spawn entities on platforms.
+    In order to spawn items such as spikes, health potions, and coins on our randomly generated platforms, we need to have a socket be attached to each platform who's location can be accesed and used to replace the invisible socket box with the entity that we want to spawn in there. So within the random platform generator, there will be a function that gets the locations of every single one of these sockets and using a random chance, spawns in one of these entities or doesnt spawn anything at all. This implementation increases the uniqueness of every level and ensures that the odds of the same level spawning are extremely low, so the player always has to adapt to their surroundings. 
+    Specs/Design: This random chance will be set per level, starting with 10% and increasing by 2% with every consecutive level. A tally will also be kept track of so that for every level there is no more than 20 spawnable entities so that the levels are not swarmed with other blocks. There will be 2 sockets per platform, so there is a chance that multiple objects can spawn on the same platform, increasing the difficultyin later levels when the spawn chance is higher, meaning the player could run into a platform that has two spikes on it, making it a risky jump.
+
 ### Shop:
 The shop will be a location the player can access in order to purchase power ups using currency collected during the game. This shop will be accessed via a interactable door at the base of each tower level. The door will be an interactable object that spawns the player into a specific location within the shop. Once the player walks through the door in the main level that says shop, their scene will switch to the shop where they can talk to dave to purchase abilities if they have enough money.
 
