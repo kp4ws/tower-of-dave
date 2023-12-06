@@ -39,6 +39,10 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UUserWidget* InteractWidget;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UUserWidget* EscapeWidget;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TSubclassOf<UUserWidget> EscapeWidgetClass;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UUserWidget* JetpackUI;
