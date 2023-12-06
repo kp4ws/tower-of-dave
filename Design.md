@@ -15,6 +15,7 @@
 - Tower Boundary
 - Random Platform Spawner
 - One Way Platform
+- Platform Socket
 - Level-traversing Door
 - Shop  
 Physical Design
@@ -45,6 +46,8 @@ Abilities will interact with the player class, and the shop in interactables, an
 
 Jetpack: This is a blueprint implemented ability that can be bought by going into the shop, talking to dave on the left side of the building and purchasing for 200 coins in the shop pop-up. Once it has been purchased, a bool hasJetpack is switched to true and can now be used for climbing in game. It is used by holding down the jump button when you are either in the middle of a jump or falling down. Using the jetpack makes your player float upwards at the same vertical velocity as your jump, and can continue to bring you up as long as you have fuel, which is set as a base of 10, and goes down by 2 for every second it is held down, meaning you can have 5 seconds of continuous fuel before it runs out and you have to buy it again. You should be able to purchase upgrades for your jetpack that increase fuel size or flight speed, to make your tower traversal even easier.
 
+Health Potion: This is a blueprint implemented object that can be bought by going into the shop, talking to dave on the left side of the building and purchasing for 100 coins in the shop pop-up. Once it has been purchased, numPotion is updated to the current numPotion amount + 10. When a health potion is used, it will be spawned in front of the player and the numPotion variable will be decremented by 1. Everything is done in blueprints, no code is required. When player walks over health potion it will get removed. Health potion objects interact directly with the player as a pickup item. BP_HealthPotion contains the main object. Heal Player function handles the healing part of the health potion, and will increment the health value of the player with a random amount between 10 and the max health amount. Summon HealthPotion Function spawns a health potion in front of the player upon press of the keybind. If numPotion is 0, no potions will be spawned. Health potions are implemented as an Actor blueprint, making them easier to reuse in the world. A suitable health potion sprite will be applied to the Actor blueprint to make the object visible to the user. 
+
 ### Widgets:
 Widgets are how the UI works in Unreal. Widgets will be added to the player and when they are needed will be switched from/to visible/invisible. This is done to visualise data for the users to make it easier to digest and be aware of game mechanics such as health of the player. This will interact with Interactables to tell when to display what widgets, as well as the abilities to display widgets that let the user know they have unlocked an ability. The HUD object is used to handle logic of widgets.
 
@@ -59,15 +62,14 @@ Interactions handling in the player include two functions which are Interact and
 Interact check is called every tick and checks if an object directly behind the player is castable to an Interactables class, if it is it updates the InteractHitResult on the line trace channel in unreal to the object.
 Interact is called when the player clicks the interact button E, it calls the function OnInteract that is in the Interactables object and that object executes its function.
 
-![image4](https://github.com/kp4ws/project-jump/assets/58745400/6abb650b-7e7a-46f4-9a2d-20f16c26fba5)
-
-
 ### Save Game
 The save game module is implemented in 3 different functions, loadGame, gameSave, and clearGame, they modify and store the wallet value of the player, as well as if they have any specific abilities unlocked.  gameSave stores these into a saveGame blueprint object, which is saved to the hard drive of the user to keep progress between plays, loadGame calls the object and sets the value of the player to these, and clearGame resets all values of both player and the SaveGame object
 ## Interactables: 
 
 Interactables is a class of objects that each object we want the player to interact with inherits from. This class has one function which is OnInteract, since this function is inherited, every interactable has it and when it is called it calls the native function of whatever object to execute their function.
 The Interactables heavily interact with the World to place these objects in the world and procedurally generate them, as well as the player who initiates calls for these objects. Widgets are also used for some of these objects. Currently there are 2 interactables implemented DaveWessel and shopLevelDoor.
+
+![image4](https://github.com/kp4ws/project-jump/assets/58745400/6abb650b-7e7a-46f4-9a2d-20f16c26fba5)
 
 ### DaveWessel: 
 When Dave Wessel is interacted with, the players camera is changed to Dave's camera and the player can no longer move. It also pulls up the Widget for the shop. When the player presses the interact button again their camera switches back to the default for the player camera and it is able to move again. Dave works with the player using its widgets, and interact, as well as stopping it from moving.
@@ -91,6 +93,12 @@ This system randomly generates a new level with every compile and placement and 
 
 ### One Way Platform:
 	The one way platform class was implemented early on in our project as a basic floor/roof of each level. Once the player jumps and reaches the bottom of this platform, a function recognizes this overlap and allows the player sprite to pass through until it is clear above the platform. Once it does this and the overlap ends, the player cannot pass back through. This platform has a feature where it sends out a signal whenever a player passes through it which is used for queuing the generation of the next level. This way the map will continue to build infinitely as the player jumps higher and higher, incrementing a variable called level count for every instance that is created. This level count variable is used to alter the continuing levels to increase the difficulty by spawning less platforms, and more traps, as well as increasing the amount of coins that are spawned. Once this signal is received, A new random level, tower boundary, traps, coins, background panel, and a one way platform are all spawned on top of the current level, allowing for a seamless jump into newly created levels.
+
+### Platform Sockets
+    An invisbile box that provides the ability to spawn entities on platforms.
+    In order to spawn items such as spikes, health potions, and coins on our randomly generated platforms, we need to have a socket be attached to each platform who's location can be accesed and used to replace the invisible socket box with the entity that we want to spawn in there. So within the random platform generator, there will be a function that gets the locations of every single one of these sockets and using a random chance, spawns in one of these entities or doesnt spawn anything at all. This implementation increases the uniqueness of every level and ensures that the odds of the same level spawning are extremely low, so the player always has to adapt to their surroundings. 
+    Specs/Design: This random chance will be set per level, starting with 10% and increasing by 2% with every consecutive level. A tally will also be kept track of so that for every level there is no more than 20 spawnable entities so that the levels are not swarmed with other blocks. There will be 2 sockets per platform, so there is a chance that multiple objects can spawn on the same platform, increasing the difficultyin later levels when the spawn chance is higher, meaning the player could run into a platform that has two spikes on it, making it a risky jump.
+
 ### Shop:
 The shop will be a location the player can access in order to purchase power ups using currency collected during the game. This shop will be accessed via a interactable door at the base of each tower level. The door will be an interactable object that spawns the player into a specific location within the shop. Once the player walks through the door in the main level that says shop, their scene will switch to the shop where they can talk to dave to purchase abilities if they have enough money.
 
@@ -103,7 +111,7 @@ A simple spike trap that subtracts a 4th of the player health if the player bump
 
 # Physical Design
 
-We are implementing our project using unreal engine 5, which uses a collaboration between blueprints and C++. There are some features that are much easier to implement using blueprints and some that are much easier using C++ classes so we have decided that using a mixture of both provides the most efficient procedure to completing our game. Blueprints are an unreal specific visual style coding practice, where you can see the actual flow of the code and track how events are performed. These blueprint classes mimic C++ logic and the actions we wish to implement can be written both ways.
+We are implementing our project using Unreal Engine 5, which uses a collaboration between blueprints and C++. There are some features that are much easier to implement using blueprints and some that are much easier using C++ classes so we have decided that using a mixture of both provides the most efficient procedure to completing our game. Blueprints are an unreal specific visual style coding practice, where you can see the actual flow of the code and track how events are performed. These blueprint classes mimic C++ logic and the actions we wish to implement can be written both ways.
 
 - The directories for most of the file structure is inherent to our Unreal Engine 5 project. The directories created for our unreal project are:
     - Config
@@ -112,6 +120,7 @@ We are implementing our project using unreal engine 5, which uses a collaboratio
         - ExternalObjects
         - Adventurer-1.5
         - Blueprint
+            - Back Drop
             - Player
             - World 
             - Main Menu
@@ -128,23 +137,52 @@ We are implementing our project using unreal engine 5, which uses a collaboratio
     - Source  
 - The important part of the directories of our concern are contained inside the Blueprints folder and the Source folder.
     - Blueprints folder contains all .uasset files which are Unreal Engine 5’s way of saving our blueprints we create inside the Unreal Engine 5 UI. These are important components to the functioning of our game.
-    - In the Source folder we have our C++ implementations inside the Private folder, and our C++ header files inside the Public folder so the classes and Our public classes currently Include MyPlayerClass, Interactables, and DaveWessel.
+    - In the Source folder we have our C++ implementations inside the Private folder, and our C++ header files inside the Public folder so the classes and Our public classes currently Include MyPlayerClass, Interactables, DaveWessel, and ShopDoor.
+      
 ## MyPlayerClass
-The player class has 3 public functions currently. SetCanMove, SetInteractWidgetVisibility, and Interact.
+Represents the main player in the game. This class has 3 public functions that can be used elsewhere in the code.
 
-### SetCanMove: Input(bool)
-This parameter is used to determine whether the player can move or not based on the input value.
+### Public Functions
+- **SetCanMove: Input(bool) -> None:**
+    - Public function used to set if player can move.
+    - Accepts a boolean value for whether the player can move or not.
+    - No return values.
 
-### SetInteractWidgetVisibility: Input(bool)
-This parameter changes whether the interact widget is visible or not based on the input value.
+- **SetInteractWidgetVisibility: Input(bool) -> None:**
+    - Public function used to update the interact widget UI visibility.
+    - Accepts a boolean value for whether the UI should be displayed or not.
+    - No return values.
 
-### Interact:
-Interact is used to call the interact function of an object that is line traced behind the player. There is no input and no output, it simply calls the object's function.
+- **Interact: () -> None:**
+    - Public function used to interact with any interactable object. Initiates the interaction with the object via line tracing behind the player's position.
+    - No parameters.
+    - No return values.
+
+
 ## Interactables
-There is only one public function for interactables which is InteractReceived.
-### InteractReceived:
-This function does not do anything but log to the console that its called. This is simply so that there is a common function within every interactable object for the player to call when they want to interact.
-## DaveWessel
-Public methods for Dave are only InteractReceived. 
-### InteractReceived: 
-This is the inherited function from the Interactables class, when the player Interacts with Dave, this function is called and then it calls the native class of OnInteract.
+Represents interactable objects in the game. There is only one public function for interactables which is InteractReceived. Each class that inherits from Interactables will override the InteractReceived function to perform their specific use cases. Dave Wessel and Shop Door are the only two interactable objects in our game.
+
+### Public Interface Method:
+- **InteractReceived: () -> None:**
+    - Public function that gets called upon the player initiating the interaction. Each interactable object overrides this function to provide specific functionality for their interaction use cases.
+    - No parameters.
+    - No return values.
+
+### DaveWessel Interactable
+Represents DaveWessel interactable object. There is only one public function, InteractReceived, which is inherited from the Interactable class.
+
+### Public Functions for DaveWessel Interactable:
+- **InteractReceived: () -> None:**
+    - Public function that gets called upon the player initiating the interaction. Opens up the shop menu upon being executed.
+    - No parameters.
+    - No return values.
+
+
+### ShopDoor Interactable:
+Represents ShopDoor interactable object. There is only one public function, InteractReceived, which is inherited from the Interactable class.
+
+### Public Functions for ShopDoor Interactable:
+- **InteractReceived: () -> None:**
+    - Public function that gets called upon the player initiating the interaction. Loads Shop level if player is in Overworld, or loads Overworld if player is in Shop level.
+    - No parameters.
+    - No return values.
