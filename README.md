@@ -54,8 +54,8 @@ This project was developed for our CSCI265 (Software Engineering) course.
 ## World Generation
 - Procedurally generated world
 - Platform sockets allowing for generation of items on top of the platforms
-- Spawnable one-way platforms at every milestone
-![image20](https://github.com/kp4ws/tower-of-dave/assets/58745400/2b350043-9466-42a1-bb6f-7994a1b2bea6)
+- Spawnable one-way platforms at every milestone  
+![image20](https://github.com/kp4ws/tower-of-dave/assets/58745400/2b350043-9466-42a1-bb6f-7994a1b2bea6)  
 
 
 ## Abilities
