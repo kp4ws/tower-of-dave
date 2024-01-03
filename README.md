@@ -62,14 +62,14 @@ This project was developed for our CSCI265 (Software Engineering) course.
 #### Jetpack Ability
 - Main powerup of the game
 - Can be bought in the shop
-- Allows you to fly until fuel runs out 
-![image14](https://github.com/kp4ws/tower-of-dave/assets/58745400/278f2a2d-5f95-4c21-a8b5-d487625a12f0)
+- Allows you to fly until fuel runs out   
+![image14](https://github.com/kp4ws/tower-of-dave/assets/58745400/278f2a2d-5f95-4c21-a8b5-d487625a12f0)  
 
 #### Health Potion Ability
 - Secondary powerup of the game
 - Can be purchased in the shop
-- Spawns a health potion in front of the player
-![image19](https://github.com/kp4ws/tower-of-dave/assets/58745400/30d8d5c4-f82a-42a1-b57d-58ce14ce1641)
+- Spawns a health potion in front of the player  
+![image19](https://github.com/kp4ws/tower-of-dave/assets/58745400/30d8d5c4-f82a-42a1-b57d-58ce14ce1641)  
 
 ## General Testing
 - Implemented as a table of detailed user scripts
